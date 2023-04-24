@@ -1,0 +1,77 @@
+;
+; Analysis-HyperVisor.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System ; TODO: specify appropriate Class
+ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318} ; TODO: specify appropriate ClassGuid
+Provider=%ManufacturerName%
+CatalogFile=Analysis-HyperVisor.cat
+DriverVer= ; TODO: set DriverVer in stampinf property pages
+PnpLockdown=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+Analysis-HyperVisor_Device_CoInstaller_CopyFiles = 11
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+Analysis-HyperVisor.sys  = 1,,
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll=1 ; make sure the number matches with SourceDisksNames
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NT$ARCH$
+
+[Standard.NT$ARCH$]
+%Analysis-HyperVisor.DeviceDesc%=Analysis-HyperVisor_Device, Root\Analysis-HyperVisor ; TODO: edit hw-id
+
+[Analysis-HyperVisor_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+Analysis-HyperVisor.sys
+
+;-------------- Service installation
+[Analysis-HyperVisor_Device.NT.Services]
+AddService = Analysis-HyperVisor,%SPSVCINST_ASSOCSERVICE%, Analysis-HyperVisor_Service_Inst
+
+; -------------- Analysis-HyperVisor driver install sections
+[Analysis-HyperVisor_Service_Inst]
+DisplayName    = %Analysis-HyperVisor.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\Analysis-HyperVisor.sys
+
+;
+;--- Analysis-HyperVisor_Device Coinstaller installation ------
+;
+
+[Analysis-HyperVisor_Device.NT.CoInstallers]
+AddReg=Analysis-HyperVisor_Device_CoInstaller_AddReg
+CopyFiles=Analysis-HyperVisor_Device_CoInstaller_CopyFiles
+
+[Analysis-HyperVisor_Device_CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll,WdfCoInstaller"
+
+[Analysis-HyperVisor_Device_CoInstaller_CopyFiles]
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll
+
+[Analysis-HyperVisor_Device.NT.Wdf]
+KmdfService =  Analysis-HyperVisor, Analysis-HyperVisor_wdfsect
+[Analysis-HyperVisor_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+DiskName = "Analysis-HyperVisor Installation Disk"
+Analysis-HyperVisor.DeviceDesc = "Analysis-HyperVisor Device"
+Analysis-HyperVisor.SVCDESC = "Analysis-HyperVisor Service"

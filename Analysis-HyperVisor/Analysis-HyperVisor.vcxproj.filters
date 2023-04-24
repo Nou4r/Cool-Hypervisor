@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Driver Files">
+      <UniqueIdentifier>{8E41214B-6785-4CFE-B992-037D68949A14}</UniqueIdentifier>
+      <Extensions>inf;inv;inx;mof;mc;</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Util">
+      <UniqueIdentifier>{09c8b5f8-602d-471e-85cd-b1b74856385c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Vmx">
+      <UniqueIdentifier>{5742e66f-ba14-4aa6-b9aa-b70a3edbba5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assembly">
+      <UniqueIdentifier>{2afafdc9-2823-4e42-a89a-18996ecbacce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Ept">
+      <UniqueIdentifier>{a797dc44-236c-45bf-adfa-7630b3d8d384}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Exit Handler">
+      <UniqueIdentifier>{4337c738-b3e7-4f1a-af8a-e5419837d41e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Exit Handler\Exit Routines">
+      <UniqueIdentifier>{f5093cb4-1fb5-4900-bcef-0c1a8767dcbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Ept\Hooking">
+      <UniqueIdentifier>{03b5b86a-3f64-486a-be36-03b30fa5d0d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Exit Handler\Exit Routines\Vmcall">
+      <UniqueIdentifier>{3e3b634f-0204-46cd-beb8-a75423cf0e91}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Inf Include="Analysis-HyperVisor.inf">
+      <Filter>Driver Files</Filter>
+    </Inf>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Vmx.cpp">
+      <Filter>Source Files\Vmx</Filter>
+    </ClCompile>
+    <ClCompile Include="Regions.cpp">
+      <Filter>Source Files\Vmx</Filter>
+    </ClCompile>
+    <ClCompile Include="Driver.cpp" />
+    <ClCompile Include="Util.cpp">
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Vmcs.cpp">
+      <Filter>Source Files\Vmx</Filter>
+    </ClCompile>
+    <ClCompile Include="ExitHandler.cpp">
+      <Filter>Source Files\Exit Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="Ept.cpp">
+      <Filter>Source Files\Ept</Filter>
+    </ClCompile>
+    <ClCompile Include="Cr-Access.cpp">
+      <Filter>Source Files\Exit Handler\Exit Routines</Filter>
+    </ClCompile>
+    <ClCompile Include="Cpuid.cpp">
+      <Filter>Source Files\Exit Handler\Exit Routines</Filter>
+    </ClCompile>
+    <ClCompile Include="Msr.cpp">
+      <Filter>Source Files\Exit Handler\Exit Routines</Filter>
+    </ClCompile>
+    <ClCompile Include="EptExitRoutine.cpp">
+      <Filter>Source Files\Exit Handler\Exit Routines</Filter>
+    </ClCompile>
+    <ClCompile Include="VmxInstruction.cpp">
+      <Filter>Source Files\Exit Handler\Exit Routines</Filter>
+    </ClCompile>
+    <ClCompile Include="Nmi.cpp">
+      <Filter>Source Files\Exit Handler\Exit Routines</Filter>
+    </ClCompile>
+    <ClCompile Include="XSetBv.cpp">
+      <Filter>Source Files\Exit Handler\Exit Routines</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>Source Files\Exit Handler\Exit Routines</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooking.cpp">
+      <Filter>Source Files\Ept\Hooking</Filter>
+    </ClCompile>
+    <ClCompile Include="ldasm.cpp">
+      <Filter>Source Files\Ept\Hooking</Filter>
+    </ClCompile>
+    <ClCompile Include="SysCallHooking.cpp">
+      <Filter>Source Files\Ept\Hooking</Filter>
+    </ClCompile>
+    <ClCompile Include="Command.cpp">
+      <Filter>Source Files\Exit Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="VPid.cpp">
+      <Filter>Source Files\Ept</Filter>
+    </ClCompile>
+    <ClCompile Include="Idt.cpp">
+      <Filter>Source Files\Vmx</Filter>
+    </ClCompile>
+    <ClCompile Include="Timing.cpp">
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="VmCall.cpp">
+      <Filter>Source Files\Exit Handler\Exit Routines\Vmcall</Filter>
+    </ClCompile>
+    <ClCompile Include="Vmcall-Util.cpp">
+      <Filter>Source Files\Exit Handler\Exit Routines\Vmcall</Filter>
+    </ClCompile>
+    <ClCompile Include="CommunicationHooks.cpp">
+      <Filter>Source Files\Ept\Hooking</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Func_defs.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ia32.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Undocumented.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Common.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Calling_Structs.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Definitions.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="Assembly.asm">
+      <Filter>Assembly</Filter>
+    </MASM>
+    <MASM Include="VmExitHandler.asm">
+      <Filter>Assembly</Filter>
+    </MASM>
+    <MASM Include="IdtHandlers.asm">
+      <Filter>Assembly</Filter>
+    </MASM>
+  </ItemGroup>
+</Project>
