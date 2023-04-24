@@ -28,6 +28,8 @@ This hypervisor implements quite some things:
 -> Add support to make this manually mappable
   . At the moment this driver must be loaded either through test signing or dse flip
   
+-> Extend the usermode part of the hypevisor, also if you want to utilize the usermodepagehook you have to be in the same address space as the function to be hooked
+  
 # Lets call them unsolved problems
 
 ->The GetModuleBaseFunction:
